@@ -1,6 +1,13 @@
-<h1>{{ display_name }}</h1>
-<ul>
-{% for item in items %}
-    <li><a href="https://jamaica.grantcohoe.com/api/v1/cocktails/{{ item.cocktail_slug }}">{{ item.cocktail_slug }}</a></li>
-{% endfor %}
-</ul>
+<div class="section">
+    <span class="section-header"><a name="{{ menu.slug }}">{{ menu.display_name }}</a></span>
+    <div class="row">
+        {% for i in range(1, menu.get('items')|length + 1) %}
+        {% set item = menu.get('items')[i-1] %}
+        <li><a href="https://jamaica.grantcohoe.com/api/v1/cocktails/{{ item.cocktail_slug }}">{{ item.cocktail_slug }}</a></li>
+        {% if i % 4 == 0 %}
+    </div>
+    <div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

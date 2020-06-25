@@ -1,10 +1,14 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='kitchen.css') }}" />
+    <meta charset="UTF-8">
 </head>
 <body>
-{% for menu in menus %}
-{{ menu|safe }}
-{% endfor %}
+<div class="body-container">
+    <a href="javascript:window.location.reload(true)">Reload</a>
+    {% for menu in menus %}
+    {{ menu|safe }}
+    {% endfor %}
+</div>
 </body>
 </html>
