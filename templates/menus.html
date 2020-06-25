@@ -1,0 +1,10 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='kitchen.css') }}" />
+</head>
+<body>
+{% for menu in menus %}
+{{ menu|safe }}
+{% endfor %}
+</body>
+</html>

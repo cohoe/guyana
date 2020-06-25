@@ -1,0 +1,155 @@
+html {
+    font-family: sans-serif;
+    font-size: 14px;
+}
+body {
+    background-color: black;
+    color: white;
+    margin: .5em;
+}
+
+.body-container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.section {}
+
+.section-header {
+    text-align: right;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    border-bottom: 1px solid #FFF;
+    margin: .25em;
+}
+
+.row {
+    flex-grow: 1;
+    justify-content: left;
+    display: flex;
+}
+
+.drink-container {
+    float: left;
+    background-color: #4c4c4c;
+    /**max-width: 20em;**/
+    width: 38ch;
+    min-width: 38ch;
+    line-height: 1.6;
+    margin: .5em;
+    height: min-content;
+}
+
+.drink-table-header {
+    padding: 0.2em 0.4em;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #666;
+    background-color: #595959;
+}
+
+.drink-table-content {
+    padding: 0.2em 0.4em;
+    min-height: 1em;
+    overflow: hidden;
+}
+
+.drink-table-content-table-container {
+
+}
+
+.drink-table-content-table-container table {
+    font-size: inherit;
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.6;
+}
+
+.drink-table-content-table-container td {
+    border: 1px solid #666;
+    padding: 0.2em 0.4em;
+}
+
+.drink-table-content-table-container td.center {
+    font-style: italic;
+    text-align: center;
+}
+
+.drink-table-content-table-container td.min {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.drink-table-content-table-container tr:first-child td {
+    border-top: 0;
+    padding: 0.2em 0.4em;
+}
+
+.drink-table-content-table-container tr:last-child td {
+    border-bottom: none;
+    padding: 0.2em 0.4em;
+}
+
+.drink-table-content-list-container {
+    padding: 0.2em 0em;
+}
+
+.drink-table-content-list-container ul, ol {
+    margin: 0;
+    padding-left: 30px;
+}
+
+.drink-table-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.drink-table-origin {
+    width: 85%;
+}
+
+.drink-status-green {
+    background-color: #80b041;
+}
+
+.drink-status-yellow {
+    background-color: #fdc945;
+}
+
+.drink-status-red {
+    background-color: #cc0000;
+}
+
+/** This makes a list show up as a ", " separated sentence **/
+.csv-list {
+    display: inline;
+    list-style: none;
+    padding: 0;
+}
+
+.csv-list li {
+    display: inline;
+    float: left;
+}
+
+/** https://stackoverflow.com/questions/16552397/css-how-to-add-white-space-before-elements-content **/
+.csv-list li:after {
+    content: ",\00a0";
+}
+
+.csv-list li:last-child:after {
+    content: "";
+}
+/** end csv **/
+
+.text-list {
+    display: inline;
+    list-style: none;
+    padding: 0;
+}
+
+.text-list li {
+    display: inline;
+}

@@ -1,0 +1,6 @@
+<h1>{{ display_name }}</h1>
+<ul>
+{% for item in items %}
+    <li><a href="https://jamaica.grantcohoe.com/api/v1/cocktails/{{ item.cocktail_slug }}">{{ item.cocktail_slug }}</a></li>
+{% endfor %}
+</ul>
