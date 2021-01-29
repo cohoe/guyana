@@ -1,7 +1,8 @@
 <ul>
     <li>
         {% set tag = node.keys() | first %}
-        {{ tag }}
+        {% set data = node.get(tag).data %}
+        {{ tag }} ({{ data.kind }})
         {% for child_node in node.get(tag).children %}
             {{ _render_node(child_node) | safe }}
         {% endfor %}
