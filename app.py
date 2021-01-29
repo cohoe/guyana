@@ -1,12 +1,13 @@
 import requests
 import json
 from flask import Flask, render_template, Response, stream_with_context, url_for
+import settings
 
 app = Flask(__name__)
 
 
 def _get_menus():
-    return requests.get('https://jamaica.grantcohoe.com/api/v1/menus/').json()
+    return requests.get('http://localhost/api/v1/drinklists/').json()
 
 
 # https://flask.palletsprojects.com/en/1.1.x/patterns/streaming/
@@ -23,4 +24,4 @@ def hello():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=settings.FLASK_DEBUG, host='0.0.0.0', port=3000)
