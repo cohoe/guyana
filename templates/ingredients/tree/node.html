@@ -1,0 +1,9 @@
+<ul>
+    <li>
+        {% set tag = node.keys() | first %}
+        {{ tag }}
+        {% for child_node in node.get(tag).children %}
+            {{ _render_node(child_node) | safe }}
+        {% endfor %}
+    </li>
+</ul>

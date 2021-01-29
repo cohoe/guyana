@@ -1,0 +1,22 @@
+<html>
+<head>
+    <!--    <link rel="stylesheet" href="{{ url_for('static', filename='kitchen.css') }}" />-->
+    <meta charset="UTF-8">
+    <script src="{{ url_for('static', filename='CollapsibleLists.js')}}"></script>
+</head>
+<body onload="CollapsibleLists.apply();">
+<div class="body-container">
+    <a href="javascript:window.location.reload(true)">Reload</a>
+        <ul class="collapsibleList">
+            {% for tag, node in tree.items() %}
+            <li>
+                {{ tag }}
+                {% for child_node in node.children %}
+                {{ _render_node(child_node) | safe }}
+                {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+</div>
+</body>
+</html>
