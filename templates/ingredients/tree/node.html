@@ -6,5 +6,12 @@
         {% for child_node in node.get(tag).children %}
             {{ _render_node(child_node) | safe }}
         {% endfor %}
+        {% if data.get('elements') %}
+        <ul>
+        {% for element_node in data.get('elements') %}
+            <li><i>{{ element_node }} (element)</i></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
     </li>
 </ul>
