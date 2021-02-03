@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<!--<body onload="CollapsibleLists.apply();">-->
+<body>
+<div class="body-container">
+<!--    <a href="javascript:window.location.reload(true)">Reload</a>-->
+    <ul class="collapsibleList">
+        {% for recipe in recipes %}
+        <li>{{ recipe.hit.cocktail_slug }} ({{ recipe.hit.spec_slug }})</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

@@ -25,18 +25,27 @@ def get_tree():
     for tag, node in tree.items():
         print(tag)
 
-    # def _render_node(tag, children):
-    #     return render_template('ingredients/tree/node.html', tag=tag, children=children, _render_node=_render_node)
-
     def _render_node(node):
         return render_template('ingredients/tree/node.html', node=node, _render_node=_render_node)
 
-    # for key in tree.keys():
-    #
-    #
     doc = render_template('ingredients/tree/tree.html', tree=tree, _render_node=_render_node)
 
     return doc
+
+
+@app.route('/me')
+def me():
+    inventories = json.loads(requests.get('http://localhost:8080/api/v1/inventories/').text)
+    inventory_id = inventories[0].get('id')
+
+    print("Found inventory ID %s" % inventory_id)
+
+    recipes = json.loads(requests.get("http://localhost:8080/api/v1/inventories/%s/recipes/search" % inventory_id, params={'missing': 0}).text)
+
+    # https://www.geeksforgeeks.org/ways-sort-list-dictionaries-values-python-using-lambda-function/
+    sort = sorted(recipes, key=lambda x: x.get('hit').get('cocktail_slug'))
+
+    return render_template('recipes/recipes.html', recipes=sort)
 
 
 if __name__ == '__main__':
