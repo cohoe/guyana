@@ -35,7 +35,7 @@ def get_tree():
 
 @app.route('/me')
 def me():
-    inventories = json.loads(requests.get('http://localhost:8080/api/v1/inventories/').text)
+    inventories = json.loads(requests.get('http://localhost:8080/api/v1/inventories').text)
     inventory_id = inventories[0].get('id')
 
     print("Found inventory ID %s" % inventory_id)
